@@ -24,8 +24,9 @@ public class HeroRepositoryHandler implements ApplicationRunner {
     }
 
     /**
-     Right after Spring has started, this hook is run where we parse a heroes' detailed source CSV file in resources
-     directory and stores each Hero object entities as defined by the auto-generated implementation of HeroRepository.
+     Right after Spring has started, this hook is run where we parse all heroes' information from a source CSV file
+     located in resources directory and stores each Hero object entities as defined by the auto-generated implementation
+     of HeroRepository.
      @throws java.io.FileNotFoundException if HEROES_CSV_FILE does not exist in resources directory.
      */
     @Override

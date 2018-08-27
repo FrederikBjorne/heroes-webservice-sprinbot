@@ -16,7 +16,7 @@ public class HeroController {
     private HeroService heroService;
 
     /**
-     * Returns all heroes with light weight information (excluded statistics) as REST endpoint /api/heroes.
+     * Returns all heroes with short information (name, alterEgo and id) as REST endpoint /api/heroes.
      *
      * @return An array of heroes with each heroes as a Map<key, value>.
      */
@@ -26,7 +26,7 @@ public class HeroController {
     }
 
     /**
-     * Returns an object containing all fields for a specific hero by id as REST endpoint /api/heroes/:id.
+     * Returns an object containing all fields for a specific hero by id as REST endpoint /api/hero/:id.
      *
      * @param id: The identifier id of a Hero as a natural number.
      * @return The heroes's detailed statistics as a Map<key, value>.
@@ -38,7 +38,7 @@ public class HeroController {
     }
 
     /**
-     * returns an object containing all fields for a specific hero by name as REST endpoint /api/heroes/name.
+     * returns an object containing all fields for a specific hero by name as REST endpoint /api/hero/name.
      *
      * @param shortName: The name of a Hero, e.g. "Batman". Notice that it is case sensitive.
      * @return The heroes's detailed statistics as a Map<key, value>.

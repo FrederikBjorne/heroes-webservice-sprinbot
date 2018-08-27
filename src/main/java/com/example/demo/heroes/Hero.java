@@ -11,7 +11,7 @@ import com.example.demo.core.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * This class represents a heroes entity.
+ * This pojo class represents a hero's entity model.
  *
  * Usage:
  * <code>
@@ -24,18 +24,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  *     heroInfo.put("sex", "Male Characters");
  *     heroInfo.put("year", "1939"); // etc..
  *
- *     Hero HeroEntity = Hero(heroInfo);
+ *     Hero heroEntity = Hero(heroInfo);
  *     System.out.println(heroEntity);
  * </code>
  */
 @Entity
 public class Hero extends BaseEntity {
-    // light weight representation of a hero
+    // short information of a hero
     private String alterEgo;
     private String name;
 
     @ElementCollection
-    private Map<String, String> details; // All information excluded light weight information
+    private Map<String, String> details; // All information excluded short information
 
     @JsonIgnore
     final static List<String> EXPECTED_PROPS = Arrays.asList("name", "page_id");
@@ -45,8 +45,8 @@ public class Hero extends BaseEntity {
     }
 
     /**
-     * The imported source data is split into a few class attributes (light weight info) and the details in a
-     * separated details map.
+     * The imported source data is split into a few class attributes (short information) and the details in a
+     * separate details map.
      * @param heroInfo: A hashmap of all source data as key and value pairs.
      */
     public Hero(Map<String, String> heroInfo) {
@@ -67,7 +67,7 @@ public class Hero extends BaseEntity {
     }
 
     /**
-     * Returns the hero name, e.g "Superman".
+     * Returns the hero's name, e.g "Superman".
      * @return A string value.
      */
     public String getName() {
@@ -75,8 +75,9 @@ public class Hero extends BaseEntity {
     }
 
     /**
-     * Returns short info (name, fullName and id).
+     * Returns short hero info (name, alterEgo and id).
      * @return A Map<key, value> of all all non-statistic data.
+     * @apiNote If this class is used isolated, id will be -1.
      */
     @JsonIgnore
     public Map<String, String> getShortInfo() {
@@ -87,6 +88,10 @@ public class Hero extends BaseEntity {
         return shortInfo;
     }
 
+    /**
+     * Returns only the hero's detailed information (name, alterEgo and id excluded).
+     * @return A hashmap with all the details.
+     */
     public Map<String, String> getDetails() {
         return details;
     }

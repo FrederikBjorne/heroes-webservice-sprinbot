@@ -10,7 +10,7 @@ import static com.example.demo.core.CollectionUtils.zipToMap;
 
 
 /**
- This class reads heroes' properties stored as data source in CSV file.
+ This class reads hero information from a comma separated CSV file.
 
  Typical usage:
  <code>
@@ -22,13 +22,13 @@ import static com.example.demo.core.CollectionUtils.zipToMap;
 public class HeroCsvFileImporter
 {
     /**
-     * Read statistics comma separated in a CSV file.
+     * Read hero information from a comma separated CSV file and return Hero objects.
      *
-     * Expects the first row to be the statistics attributes to be used as mapping keys. Then each new row's values
-     * are expected to be a heroes's corresponding data and consequently,
-     * they are mapped to these keys into a Map, e.g. {teamName=Real Madrid,
-     *                                                 name=James Rodríguez,
-     *                                                 ranking=20, ...}.
+     * Expects the first row to be the attribute names to be used as mapping keys/columns. Then each new row's values
+     * are expected to be a heroes's corresponding data and consequently, are mapped to these keys into a Map, e.g.
+     *                                                                                  {page_id=1422,
+     *                                                                                   name="Batman (Bruce Wayne)",
+     *                                                                                   year=1939, ...}.
      * @param reader: An input character stream reader.
      * @return A collection of Hero objects.
      * @throws MissingExpectedPropertyException is thrown if expected properties are missing.
@@ -46,10 +46,10 @@ public class HeroCsvFileImporter
                 }
             }
 
-            Pattern findTrueCommas = Pattern.compile(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"); // avoid splitting "1959, October"
+            Pattern findTrueCommas = Pattern.compile(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"); // avoid split "1959, October"
             String line;
             while ((line = br.readLine()) != null) {
-                // read each new line as a heroes's detailed information
+                // read each new line as a hero's detailed information and map to keys
                 heroes.add(new Hero(zipToMap(keys, Arrays.asList(findTrueCommas.split(line, -1)))));
             };
         }

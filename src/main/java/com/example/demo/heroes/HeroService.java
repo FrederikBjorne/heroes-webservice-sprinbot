@@ -15,7 +15,7 @@ class HeroNotFoundException extends Exception {
 
 
 /**
- * This class implements the Hero REST service bean.
+ * This class implements the Hero service bean.
  */
 @Service
 public class HeroService {
@@ -37,7 +37,7 @@ public class HeroService {
     /**
      * Return a heroes's detailed information identified by id from repository.
      *
-     * @param id: The identifier id of a Hero as a natural number, "1".
+     * @param id: The identifier id of a Hero as a natural number, e.g. "1".
      * @return The heroes's detailed information as a Map<key, value>.
      * @throws HeroNotFoundException if heroes is not found.
      */
