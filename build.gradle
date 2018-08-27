@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('javax.xml.bind:jaxb-api') // enable running gradlew bootRun from the terminal
+	//compile('org.springframework.boot:spring-boot-starter-security') <-- enforces login page
+	compile(group: 'com.google.guava', name: 'guava', version: '11.0.2')
+	compile('com.h2database:h2') // H2 in memory engine
+	testCompile("junit:junit")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('io.rest-assured:rest-assured:3.1.0')
+}
