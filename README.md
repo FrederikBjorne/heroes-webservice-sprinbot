@@ -13,14 +13,13 @@ All files for Hero web micro-service is located in package com.example.demo.hero
 All reusable base classes and utilites needed are located in com.example.demo.core.
 New microservices should be added in a new folder structure to keep it separated from other services.
 
-The provided source file dc_heroes.csv is located in src/main/resource and its content of DC comics hero information is
+The provided data source file dc_heroes.csv is located in src/main/resource and its content of DC comics hero information is
 robbed from their repo [here](https://github.com/fivethirtyeight/data/tree/master/comic-characters).
 
-Each line is parsed and each hero details is fed into a Hero class at object creation by heroes/HerosCSVFileImported and
-the objects are saved into memory-persistence via H2 in-memory engine by the hero/HeroRepositoryHandler. The Hero class
-(entity) itself stores lightweight information (name, alter ego and id) as attributes from a hashmap argument and the
-leftovers are kept in a details map. In order to provide lightweight information, typically when listing all heroes, a
-method Hero.getLightWeightInfo is used.
+Each line is parsed and each hero data is fed into a Hero class object by heroes/HerosCSVFileImported and the objects are
+saved into memory-persistence using H2 by the hero/HeroRepositoryHandler. The Hero class (entity) itself stores short
+information (name, alter ego and id) as attributes from a hashmap argument and the leftovers are kept in a details map.
+In order to provide short information, typically when listing all heroes, a get method Hero.getShortInfo() is used.
 
 The CRUD repository has been chosen for implementation by heroes/HeroRepository. The actual service hero/HeroService is
 separated from the REST controller hero/HeroController. Tests are available in the normal test folder.
