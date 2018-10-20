@@ -15,7 +15,7 @@ import static com.example.demo.core.CollectionUtils.zipToMap;
  Typical usage:
  <code>
      FileReader reader = new FileReader(new ClassPathResource(PLAYERS_CSV_FILE).getFile());
-     List<Hero> heroes = PlayersCSVFileImporter.parse(reader);
+     List<Hero> heroes = HeroCSVFileImporter.parse(reader);
      heroes.forEach(System.out::println);
  </code>
 */
@@ -25,7 +25,7 @@ public class HeroCsvFileImporter
      * Read hero information from a comma separated CSV file and return Hero objects.
      *
      * Expects the first row to be the attribute names to be used as mapping keys/columns. Then each new row's values
-     * are expected to be a heroes's corresponding data and consequently, are mapped to these keys into a Map, e.g.
+     * are expected to be a hero's corresponding data and consequently, are mapped to these keys into a Map, e.g.
      *                                                                                  {page_id=1422,
      *                                                                                   name="Batman (Bruce Wayne)",
      *                                                                                   year=1939, ...}.
