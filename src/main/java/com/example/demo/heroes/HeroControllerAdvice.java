@@ -17,7 +17,7 @@ class HeroControllerAdvice {
     @ResponseBody
     @ExceptionHandler(HeroNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    VndErrors PlayerNotFoundExceptionHandler(HeroNotFoundException ex) {
+    VndErrors HeroNotFoundExceptionHandler(HeroNotFoundException ex) {
         return new VndErrors("error", ex.getMessage());
     }
 }
