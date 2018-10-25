@@ -1,4 +1,4 @@
-#Spring boot implementation of a micro-service providing information about heroes
+# Spring boot implementation of a micro-service providing information about heroes
 
 The server is implemented using Spring Boot.
 
@@ -11,7 +11,6 @@ Port 8090 is set in application.properties for developing locally and this is us
 
 All files for Hero web micro-service is located in package com.example.demo.heroes.
 All reusable base classes and utilites needed are located in com.example.demo.core.
-New microservices should be added in a new folder structure to keep it separated from other services.
 
 The provided data source file dc_heroes.csv is located in src/main/resource and its content of DC comics hero information is
 robbed from their repo [here](https://github.com/fivethirtyeight/data/tree/master/comic-characters).
@@ -24,7 +23,7 @@ In order to provide short information, typically when listing all heroes, a get 
 The CRUD repository has been chosen for implementation by heroes/HeroRepository. The actual service hero/HeroService is
 separated from the REST controller hero/HeroController. Tests are available in the normal test folder.
 
-##Prerequisites
+## Prerequisites
 
 Java 8 JDK [Install JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -32,9 +31,9 @@ Gradle 4.8.1 [Install Gradle](https://gradle.org/install/)
 
 Spring Boot 2.04 [Install Spring boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-installing-spring-boot.html#getting-started-installing-the-cli)
 
-##Installation
+## Installation
 
-The project is preferrably imported using the free [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) community
+The project is preferrably imported using the free IDE [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) community
 edition (recommended).
 
 1. Select import project
