@@ -12,8 +12,8 @@ Port 8090 is set in application.properties for developing locally and this is us
 All files for Hero web micro-service is located in package com.example.demo.heroes.
 All reusable base classes and utilites needed are located in com.example.demo.core.
 
-The provided data source file dc_heroes.csv is located in src/main/resource and its content of DC comics hero information is
-robbed from their repo [here](https://github.com/fivethirtyeight/data/tree/master/comic-characters).
+The provided data source file dc_heroes.csv is located in src/main/resource and its content of DC comics hero information
+is copied from their repo [here](https://github.com/fivethirtyeight/data/tree/master/comic-characters).
 
 Each line is parsed and each hero data is fed into a Hero class object by heroes/HerosCSVFileImported and the objects are
 saved into memory-persistence using H2 by the hero/HeroRepositoryHandler. The Hero class (entity) itself stores short
